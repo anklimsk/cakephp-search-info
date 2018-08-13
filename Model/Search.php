@@ -177,7 +177,7 @@ class Search extends CakeSearchInfoAppModel
                     continue;
                 }
 
-                if ($modelObj->isVirtualField($field)) {
+                if ($modelObj->isVirtualField($fieldName)) {
                     $conditions['OR'][$fieldName . ' like'] = $queryCondition;
                 } else {
                     $conditions['OR']['LOWER(' . $fieldName . ') like'] = mb_strtolower($queryCondition);
