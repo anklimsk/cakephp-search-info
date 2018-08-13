@@ -176,7 +176,7 @@ class Search extends CakeSearchInfoAppModel
                     continue;
                 }
 
-                $conditions['OR'][$fieldName . ' like'] = ($queryConfig['anyPart'] ? '%' : '') . $query . '%';
+                $conditions['OR']['LOWER(' . $fieldName . ') like'] = ($queryConfig['anyPart'] ? '%' : '') . mb_strtolower($query) . '%';
             }
             if (empty($conditions)) {
                 continue;
@@ -782,15 +782,15 @@ class Search extends CakeSearchInfoAppModel
         $conditions = [];
         $order = null;
         $extractPaths = [];
-        $queryCondition = ($anyPart ? '%' : '') . $query . '%';
-        $queryExtract = ($anyPart ? '.*' : '') . preg_quote($query, '/') . '.*';
+        $queryCondition = ($anyPart ? '%' : '') . mb_strtolower($query) . '%';
+        $queryExtract = ($anyPart ? '.*' : '') . preg_quote(mb_strtolower($query), '/') . '.*';
         $useDistinct = true;
         if (isset($config['conditions']) && !empty($config['conditions'])) {
             $conditions = (array)$config['conditions'];
         }
 
         foreach ($fields as &$field) {
-            $conditions['OR'][$field . ' like'] = $queryCondition;
+            $conditions['OR']['LOWER(' . $field . ') like'] = $queryCondition;
             list($modelName, $fieldName) = pluginSplit($field);
             $extractPaths[] = '{n}.' . $modelName . '[' . $fieldName . '=/' . $queryExtract . '/ui].' . $fieldName;
             if (count($conditions['OR']) == 1) {

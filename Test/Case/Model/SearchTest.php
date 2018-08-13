@@ -381,7 +381,7 @@ class SearchTest extends AppCakeTestCase
             ],
             [
                 [
-                    'query' => 'город',
+                    'query' => 'Город',
                     'target' => [
                         CAKE_SEARCH_INFO_TARGET_FIELD_ANY_PART,
                         'City',
@@ -401,7 +401,7 @@ class SearchTest extends AppCakeTestCase
             ],
             [
                 [
-                    'query' => 'город',
+                    'query' => 'Город',
                     'target' => [
                         'City',
                         'Pcode',
@@ -574,7 +574,7 @@ class SearchTest extends AppCakeTestCase
             ],
             [
                 [
-                    'query' => 'город',
+                    'query' => 'Город',
                     'target' => [
                         CAKE_SEARCH_INFO_TARGET_FIELD_ANY_PART,
                         'City.City.test.description',
@@ -596,7 +596,7 @@ class SearchTest extends AppCakeTestCase
             ],
             [
                 [
-                    'query' => 'город',
+                    'query' => 'Город',
                     'target' => [
                         CAKE_SEARCH_INFO_TARGET_FIELD_ANY_PART,
                         'City.City.description',
@@ -895,7 +895,7 @@ class SearchTest extends AppCakeTestCase
             ],
             [
                 [
-                    'query' => 'город',
+                    'query' => 'Город',
                     'target' => [
                         CAKE_SEARCH_INFO_TARGET_FIELD_ANY_PART,
                         'City',
@@ -911,7 +911,7 @@ class SearchTest extends AppCakeTestCase
             ],
             [
                 [
-                    'query' => 'город',
+                    'query' => 'Город',
                     'target' => [
                         'City',
                         'Pcode',
@@ -981,7 +981,7 @@ class SearchTest extends AppCakeTestCase
             ],
             [
                 [
-                    'query' => 'город',
+                    'query' => 'Город',
                     'target' => [
                         CAKE_SEARCH_INFO_TARGET_FIELD_ANY_PART,
                         'City.City.test.description',
@@ -999,7 +999,7 @@ class SearchTest extends AppCakeTestCase
             ],
             [
                 [
-                    'query' => 'город',
+                    'query' => 'Город',
                     'target' => [
                         CAKE_SEARCH_INFO_TARGET_FIELD_ANY_PART,
                         'City.City.description',
@@ -1062,7 +1062,7 @@ class SearchTest extends AppCakeTestCase
                 null, // $limit
             ],
             [
-                mb_substr('город', 0, $querySearchMinLength - 1), // $query
+                mb_substr('Город', 0, $querySearchMinLength - 1), // $query
                 [
                     CAKE_SEARCH_INFO_TARGET_FIELD_ANY_PART,
                     'City',
@@ -1072,7 +1072,7 @@ class SearchTest extends AppCakeTestCase
                 0, // $limit
             ],
             [
-                'город', // $query
+                'Город', // $query
                 [
                     CAKE_SEARCH_INFO_TARGET_FIELD_ANY_PART,
                     'City',
@@ -1168,7 +1168,7 @@ class SearchTest extends AppCakeTestCase
                 null, // $limit
             ],
             [
-                'город', // $query
+                'Город', // $query
                 [
                     CAKE_SEARCH_INFO_TARGET_FIELD_ANY_PART,
                     'City.City.description',
@@ -1179,7 +1179,7 @@ class SearchTest extends AppCakeTestCase
                 0, // $limit
             ],
             [
-                'город', // $query
+                'Город', // $query
                 [
                     'City.City.description',
                     'Pcode.Pcode.code',
