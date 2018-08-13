@@ -171,12 +171,17 @@ class Search extends CakeSearchInfoAppModel
                 $conditions = Hash::merge($conditions, (array)$config['conditions']);
             }
 
+            $queryCondition = ($queryConfig['anyPart'] ? '%' : '') . $query . '%';
             foreach ($fields as $fieldName) {
                 if (!$this->_checkFieldType($fieldName)) {
                     continue;
                 }
 
-                $conditions['OR']['LOWER(' . $fieldName . ') like'] = ($queryConfig['anyPart'] ? '%' : '') . mb_strtolower($query) . '%';
+                if ($modelObj->isVirtualField($field)) {
+                    $conditions['OR'][$fieldName . ' like'] = $queryCondition;
+                } else {
+                    $conditions['OR']['LOWER(' . $fieldName . ') like'] = mb_strtolower($queryCondition);
+                }
             }
             if (empty($conditions)) {
                 continue;
@@ -782,22 +787,31 @@ class Search extends CakeSearchInfoAppModel
         $conditions = [];
         $order = null;
         $extractPaths = [];
-        $queryCondition = ($anyPart ? '%' : '') . mb_strtolower($query) . '%';
-        $queryExtract = ($anyPart ? '.*' : '') . preg_quote(mb_strtolower($query), '/') . '.*';
+        $queryCondition = ($anyPart ? '%' : '') . $query . '%';
+        $queryExtract = ($anyPart ? '.*' : '') . preg_quote($query, '/') . '.*';
         $useDistinct = true;
         if (isset($config['conditions']) && !empty($config['conditions'])) {
             $conditions = (array)$config['conditions'];
         }
 
         foreach ($fields as &$field) {
-            $conditions['OR']['LOWER(' . $field . ') like'] = $queryCondition;
+            $isVirtualField = false;
+            if ($modelObj->isVirtualField($field)) {
+                $isVirtualField = true;
+            }
+            if ($isVirtualField) {
+                $conditions['OR'][$field . ' like'] = $queryCondition;
+            } else {
+                $conditions['OR']['LOWER(' . $field . ') like'] = mb_strtolower($queryCondition);
+                $queryExtract = mb_strtolower($queryExtract);
+            }
             list($modelName, $fieldName) = pluginSplit($field);
             $extractPaths[] = '{n}.' . $modelName . '[' . $fieldName . '=/' . $queryExtract . '/ui].' . $fieldName;
             if (count($conditions['OR']) == 1) {
                 $order = [$field => 'asc'];
             }
 
-            if ($useDistinct && !$modelObj->isVirtualField($field)) {
+            if ($useDistinct && !$isVirtualField) {
                 $field = 'DISTINCT ' . $field;
                 $useDistinct = false;
             }
