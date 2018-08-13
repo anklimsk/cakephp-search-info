@@ -15,31 +15,31 @@ $config['CakeSearchInfo'] = [
     'DefaultSearchAnyPart' => true,
     'TargetModels' => [
 /*
-        'ModelName' => array(
-            'fields' => array(
+        'ModelName' => [
+            'fields' => [
                 'ModelName.FieldName' => __('Field name'),
                 'ModelName.FieldName2' => __('Field name 2'),
-            ),
-            'order' => array('ModelName.FieldName' => 'direction'),
+            ],
+            'order' => ['ModelName.FieldName' => 'direction'],
             'name' => __('Scope name'),
             'recursive' => 0, // not necessary - default: -1
             'contain' => null, // not necessary - default: null
-            'conditions' => array('ModelName.FieldName' => 'SomeValue'), // not necessary - used as global conditions
-            'url' => array(
+            'conditions' => ['ModelName.FieldName' => 'SomeValue'], // not necessary - used as global conditions
+            'url' => [
                 'controller' => 'modelnames',
                 'action' => 'view',
                 'plugin' => 'pluginname',
-            ),  // not necessary - used in link to result
+            ],  // not necessary - used in link to result
             'id' => 'ModelName.id', // not necessary - used in link to result
-        ),
+        ],
 */
     ],
     'IncludeFields' => [
 /*
-        'ModelName' => array(
+        'ModelName' => [
             'ModelName.FieldName',
             'ModelName.FieldName2',
-        )
+        ]
 */
     ],
 ];
