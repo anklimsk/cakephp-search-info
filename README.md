@@ -10,8 +10,8 @@ Search for information in the project database
 - Support auto-completion in the search bar;
 - Support for keyboard layout corrections for the Russian language;
 - Supports two levels of search:
-*  For all fields of the `Model`;
-*  For each field of the `Model` separately.
+  * For all fields of the `Model`;
+  * For each field of the `Model` separately.
 
 ## Installation
 
