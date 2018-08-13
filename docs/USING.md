@@ -11,8 +11,9 @@ public $components = [
 ];
 ```
 4. Copy i18n files from `app/Plugin/CakeSearchInfo/Locale/rus/LC_MESSAGES/cake_search_info.*` to
-`app/Locale/rus/LC_MESSAGES`;
-5. If you want to use in your layer:
+`app/Locale/rus/LC_MESSAGES`
+5. To start the search, go to the link `/cake_search_info/search` or simply `/search`
+6. If you want to use in your layer:
 - Include helper `CakeSearchInfo.Search` in your `AppController`:
 ```php
 public $helpers = [
