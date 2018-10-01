@@ -28,6 +28,28 @@ class SearchController extends CakeSearchInfoAppController
     public $name = 'Search';
 
     /**
+     * An array containing the class names of models this controller uses.
+     *
+     * Example: `public $uses = array('Product', 'Post', 'Comment');`
+     *
+     * Can be set to several values to express different options:
+     *
+     * - `true` Use the default inflected model name.
+     * - `array()` Use only models defined in the parent class.
+     * - `false` Use no models at all, do not merge with parent class either.
+     * - `array('Post', 'Comment')` Use only the Post and Comment models. Models
+     *   Will also be merged with the parent class.
+     *
+     * The default value is `true`.
+     *
+     * @var mixed
+     * @link http://book.cakephp.org/2.0/en/controllers.html#components-helpers-and-uses
+     */
+    public $uses = [
+        'CakeSearchInfo.Search'
+    ];
+
+    /**
      * Array containing the names of components this controller uses. Component names
      * should not contain the "Component" portion of the class name.
      *
@@ -95,7 +117,9 @@ class SearchController extends CakeSearchInfoAppController
     public function index()
     {
         $search_urlActionSearch = null;
-        $this->set(compact('search_urlActionSearch'));
+        $breadCrumbs = $this->Search->getBreadcrumbInfo();
+        $breadCrumbs[] = __d('cake_search_info', 'New search');
+        $this->set(compact('search_urlActionSearch', 'breadCrumbs'));
     }
 
     /**
@@ -106,6 +130,9 @@ class SearchController extends CakeSearchInfoAppController
     public function search()
     {
         $this->SearchFilter->search();
+        $breadCrumbs = $this->Search->getBreadcrumbInfo();
+        $breadCrumbs[] = __d('cake_search_info', 'Results of search');
+        $this->set(compact('breadCrumbs'));
     }
 
     /**

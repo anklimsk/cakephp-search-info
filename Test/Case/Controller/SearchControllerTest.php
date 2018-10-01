@@ -45,6 +45,17 @@ class SearchControllerTest extends AppControllerTestCase
         $result = $this->testAction('/cake_search_info/search/index', $opt);
         $expected = [
             'search_urlActionSearch' => null,
+            'breadCrumbs' => [
+                [
+                    __d('cake_search_info', 'Search information'),
+                    [
+                        'plugin' => 'cake_search_info',
+                        'controller' => 'search',
+                        'action' => 'index'
+                    ]
+                ],
+                __d('cake_search_info', 'New search')
+            ],
             'uiLcid2' => 'en',
             'uiLcid3' => 'eng',
             'search_targetFields' => [
@@ -79,6 +90,17 @@ class SearchControllerTest extends AppControllerTestCase
         ];
         $result = $this->testAction('/cake_search_info/search/search', $opt);
         $expected = [
+            'breadCrumbs' => [
+                [
+                    __d('cake_search_info', 'Search information'),
+                    [
+                        'plugin' => 'cake_search_info',
+                        'controller' => 'search',
+                        'action' => 'index'
+                    ]
+                ],
+                __d('cake_search_info', 'Results of search')
+            ],
             'query' => '',
             'queryCorrect' => '',
             'queryConfig' => [
@@ -193,6 +215,17 @@ class SearchControllerTest extends AppControllerTestCase
         ];
         $result = $this->testAction('/cake_search_info/search/search', $opt);
         $expected = [
+            'breadCrumbs' => [
+                [
+                    __d('cake_search_info', 'Search information'),
+                    [
+                        'plugin' => 'cake_search_info',
+                        'controller' => 'search',
+                        'action' => 'index'
+                    ]
+                ],
+                __d('cake_search_info', 'Results of search')
+            ],
             'query' => 'город',
             'queryCorrect' => '',
             'queryConfig' => [
@@ -257,6 +290,17 @@ class SearchControllerTest extends AppControllerTestCase
         ];
         $result = $this->testAction('/cake_search_info/search/search/sort:City.name/direction:desc', $opt);
         $expected = [
+            'breadCrumbs' => [
+                [
+                    __d('cake_search_info', 'Search information'),
+                    [
+                        'plugin' => 'cake_search_info',
+                        'controller' => 'search',
+                        'action' => 'index'
+                    ]
+                ],
+                __d('cake_search_info', 'Results of search')
+            ],
             'query' => 'город',
             'queryCorrect' => '',
             'queryConfig' => [
@@ -361,6 +405,17 @@ class SearchControllerTest extends AppControllerTestCase
         ];
         $result = $this->testAction('/cake_search_info/search/search', $opt);
         $expected = [
+            'breadCrumbs' => [
+                [
+                    __d('cake_search_info', 'Search information'),
+                    [
+                        'plugin' => 'cake_search_info',
+                        'controller' => 'search',
+                        'action' => 'index'
+                    ]
+                ],
+                __d('cake_search_info', 'Results of search')
+            ],
             'query' => 'ujhjl',
             'queryCorrect' => 'город',
             'queryConfig' => [
@@ -466,6 +521,17 @@ class SearchControllerTest extends AppControllerTestCase
         ];
         $result = $this->testAction('/cake_search_info/search/search', $opt);
         $expected = [
+            'breadCrumbs' => [
+                [
+                    __d('cake_search_info', 'Search information'),
+                    [
+                        'plugin' => 'cake_search_info',
+                        'controller' => 'search',
+                        'action' => 'index'
+                    ]
+                ],
+                __d('cake_search_info', 'Results of search')
+            ],
             'query' => 'ujhjl',
             'queryCorrect' => '',
             'queryConfig' => [

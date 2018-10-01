@@ -19,11 +19,7 @@
     ]);
 
     $this->assign('title', __d('cake_search_info', 'Search information'));
-    $this->Html->addCrumb(__d('cake_search_info', 'Search information'), [
-        'plugin' => 'cake_search_info',
-        'controller' => 'search',
-        'action' => 'index']);
-    $this->Html->addCrumb(__d('cake_search_info', 'Results of search'));
+    $this->ViewExtension->addBreadCrumbs($breadCrumbs);
 ?>
 <div class="container">
 <?php

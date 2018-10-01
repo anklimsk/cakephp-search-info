@@ -1382,4 +1382,40 @@ class SearchTest extends AppCakeTestCase
         ];
         $this->runClassMethodGroup('getAutocomplete', $params, $expected);
     }
+
+    /**
+     * testGetPluginName method
+     *
+     * @return void
+     */
+    public function testGetPluginName()
+    {
+        $result = $this->_targetObject->getPluginName();
+        $expected = 'cake_search_info';
+        $this->assertData($expected, $result);
+    }
+
+    /**
+     * testGetControllerName method
+     *
+     * @return void
+     */
+    public function testGetControllerName()
+    {
+        $result = $this->_targetObject->getControllerName();
+        $expected = 'search';
+        $this->assertData($expected, $result);
+    }
+
+    /**
+     * testGetGroupName method
+     *
+     * @return void
+     */
+    public function testGetGroupName()
+    {
+        $result = $this->_targetObject->getGroupName();
+        $expected = __d('cake_search_info', 'Search information');
+        $this->assertData($expected, $result);
+    }
 }
