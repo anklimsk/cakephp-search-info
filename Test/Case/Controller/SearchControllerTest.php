@@ -45,6 +45,7 @@ class SearchControllerTest extends AppControllerTestCase
         $result = $this->testAction('/cake_search_info/search/index', $opt);
         $expected = [
             'search_urlActionSearch' => null,
+            'pageTitle' => __d('cake_search_info', 'Search information'),
             'breadCrumbs' => [
                 [
                     __d('cake_search_info', 'Search information'),
@@ -90,6 +91,7 @@ class SearchControllerTest extends AppControllerTestCase
         ];
         $result = $this->testAction('/cake_search_info/search/search', $opt);
         $expected = [
+            'pageTitle' => __d('cake_search_info', 'Search information'),
             'breadCrumbs' => [
                 [
                     __d('cake_search_info', 'Search information'),
@@ -215,6 +217,7 @@ class SearchControllerTest extends AppControllerTestCase
         ];
         $result = $this->testAction('/cake_search_info/search/search', $opt);
         $expected = [
+            'pageTitle' => __d('cake_search_info', 'Search information'),
             'breadCrumbs' => [
                 [
                     __d('cake_search_info', 'Search information'),
@@ -290,6 +293,7 @@ class SearchControllerTest extends AppControllerTestCase
         ];
         $result = $this->testAction('/cake_search_info/search/search/sort:City.name/direction:desc', $opt);
         $expected = [
+            'pageTitle' => __d('cake_search_info', 'Search information'),
             'breadCrumbs' => [
                 [
                     __d('cake_search_info', 'Search information'),
@@ -405,6 +409,7 @@ class SearchControllerTest extends AppControllerTestCase
         ];
         $result = $this->testAction('/cake_search_info/search/search', $opt);
         $expected = [
+            'pageTitle' => __d('cake_search_info', 'Search information'),
             'breadCrumbs' => [
                 [
                     __d('cake_search_info', 'Search information'),
@@ -521,6 +526,7 @@ class SearchControllerTest extends AppControllerTestCase
         ];
         $result = $this->testAction('/cake_search_info/search/search', $opt);
         $expected = [
+            'pageTitle' => __d('cake_search_info', 'Search information'),
             'breadCrumbs' => [
                 [
                     __d('cake_search_info', 'Search information'),

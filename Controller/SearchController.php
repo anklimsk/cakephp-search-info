@@ -117,9 +117,10 @@ class SearchController extends CakeSearchInfoAppController
     public function index()
     {
         $search_urlActionSearch = null;
+        $pageTitle = __d('cake_search_info', 'Search information');
         $breadCrumbs = $this->Search->getBreadcrumbInfo();
         $breadCrumbs[] = __d('cake_search_info', 'New search');
-        $this->set(compact('search_urlActionSearch', 'breadCrumbs'));
+        $this->set(compact('search_urlActionSearch', 'pageTitle', 'breadCrumbs'));
     }
 
     /**
@@ -130,9 +131,10 @@ class SearchController extends CakeSearchInfoAppController
     public function search()
     {
         $this->SearchFilter->search();
+        $pageTitle = __d('cake_search_info', 'Search information');
         $breadCrumbs = $this->Search->getBreadcrumbInfo();
         $breadCrumbs[] = __d('cake_search_info', 'Results of search');
-        $this->set(compact('breadCrumbs'));
+        $this->set(compact('pageTitle', 'breadCrumbs'));
     }
 
     /**

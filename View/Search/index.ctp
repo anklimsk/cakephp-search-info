@@ -7,7 +7,7 @@
      * @package plugin.View.Search
      */
 
-    $this->assign('title', __d('cake_search_info', 'Search information'));
+    $this->assign('title', $pageTitle);
     $this->ViewExtension->addBreadCrumbs($breadCrumbs);
 ?>
     <div class="container container-table"> 
