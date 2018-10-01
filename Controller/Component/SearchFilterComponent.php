@@ -136,15 +136,15 @@ class SearchFilterComponent extends Component {
 			return;
 		}
 
-		$targetFields = $this->_modelSearch->getTargetFields();
-		$targetFieldsSelected = $this->getTargetList();
-		$querySearchMinLength = $this->_modelConfigSearchInfo->getQuerySearchMinLength();
 		$targetDeep = $this->_modelConfigSearchInfo->getTargetDeep();
+		$querySearchMinLength = $this->_modelConfigSearchInfo->getQuerySearchMinLength();
+		$targetFieldsSelected = $this->getTargetList();
+		$targetFields = $this->_modelSearch->getTargetFields();
 
-		$controller->set('search_targetFields', $targetFields);
-		$controller->set('search_targetFieldsSelected', $targetFieldsSelected);
-		$controller->set('search_querySearchMinLength', $querySearchMinLength);
 		$controller->set('search_targetDeep', $targetDeep);
+		$controller->set('search_querySearchMinLength', $querySearchMinLength);
+		$controller->set('search_targetFieldsSelected', $targetFieldsSelected);
+		$controller->set('search_targetFields', $targetFields);
 	}
 
 /**
