@@ -248,7 +248,7 @@ class SearchFilterComponent extends Component {
 				$conditions = compact('query', 'target');
 				$result = $this->_controller->Paginator->paginate('Search', $conditions, $whitelist);
 				if (empty($result) && (mb_strtolower($lang) === 'rus')
-				   && version_compare(PHP_VERSION, '7.3.0', '<')) {
+					&& version_compare(PHP_VERSION, '7.3.0', '<')) {
 					$textConv = new Text_LangCorrect();
 					$queryCorrect = $textConv->parse($query, Text_LangCorrect::SIMILAR_CHARS | Text_LangCorrect::KEYBOARD_LAYOUT);
 					if (($query === $queryCorrect) || $correct) {

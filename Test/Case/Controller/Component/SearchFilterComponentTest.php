@@ -850,7 +850,7 @@ class SearchFilterComponentTest extends AppCakeTestCase {
  */
 	public function testAutocompleteValidRequestTextCorrect() {
 		$this->skipIf(version_compare(PHP_VERSION, '7.3.0', '>='), 'Skipped for PHP 7.3 or higher');
-		
+
 		Configure::write('Config.language', 'rus');
 		$url = '/cake_search_info/search/autocomplete.json';
 		$data = [
